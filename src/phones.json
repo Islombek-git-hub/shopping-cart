@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "phone_name": "Samsung",
+    "model": "Galaxy S21 Ultra",
+    "price": 1300,
+    "count": 1,
+    "img": "./img/samsung.webp"
+  },
+  {
+    "id": 2,
+
+    "phone_name": "MI",
+    "model": "11 Pro",
+    "price": 1000,
+    "count": 1,
+    "img": "./img/mi.webp"
+  },
+  {
+    "id": 3,
+
+    "phone_name": "Apple",
+    "model": "IPhone 13 Pro MAX",
+    "price": 1500,
+    "count": 1,
+    "img": "./img/iphone.webp"
+  },
+  {
+    "id": 4,
+    "phone_name": "Huawei",
+    "model": "p50 Pro",
+    "price": 500,
+    "count": 1,
+    "img": "./img/huawei.webp"
+  },
+  {
+    "id": 5,
+    "phone_name": "Oppo",
+    "model": "Find X3",
+    "price": 450,
+    "count": 1,
+    "img": "./img/oppo.webp"
+  },
+  {
+    "id": 6,
+    "phone_name": "Vivo",
+    "model": "x60 Pro",
+    "price": 750,
+    "count": 1,
+    "img": "./img/vivo.webp"
+  }
+]

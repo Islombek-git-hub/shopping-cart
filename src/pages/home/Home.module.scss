@@ -1,0 +1,53 @@
+.box_phones {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  .card_phone {
+    width: calc(100% / 4);
+    // border: 1px solid;
+    text-align: center;
+    padding: 0.5rem;
+    //   min-height: 400px;
+    color: #333;
+    div {
+      background-color: #eee;
+
+      &:hover {
+        box-shadow: 0 0 10px #777;
+        transform: scale(1.01);
+      }
+      img {
+        width: 100%;
+      }
+      h3 {
+      }
+      p {
+        font-size: 0.8rem;
+        margin: 0.3rem 0;
+        text-decoration: underline;
+      }
+      span {
+        background-color: #00a8ff;
+        border: 1px solid #0097e6;
+        font-size: 0.8rem;
+        color: #eee;
+        padding: 3px;
+      }
+      button {
+        border: none;
+        outline: none;
+        background-color: #2d3436;
+        color: #eee;
+        cursor: pointer;
+        margin: 0.7rem 0;
+        padding: 0.5rem 1.5rem;
+        &:active {
+          transform: scale(0.98);
+          opacity: 0.95;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.nav {
+  width: 100vw;
+  height: 50px;
+  background-color: #2d3436;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    li {
+      a {
+        text-decoration: none;
+        div {
+          background-color: #2d3436;
+          color: #fff;
+          font-size: 0.7rem;
+          padding: 0 1.3rem;
+          position: relative;
+          margin: 0 0.05rem;
+          height: 50px;
+          line-height: 50px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .cart_count {
+          background-color: #c23616;
+          border-radius: 50%;
+          position: absolute;
+          right: 0.2rem;
+          width: 1rem;
+          height: 1rem;
+          font-size: 0.6rem;
+          text-align: center;
+          line-height: 1rem;
+          top: 0.5rem;
+        }
+      }
+    }
+  }
+}
