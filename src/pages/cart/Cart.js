@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
 import style from "./Cart.module.scss";
 
-const Cart = ({ main_cart, phones, setMain_cart }) => {
+const Cart = ({ main_cart, removeCart, phones, addCart }) => {
   return (
     <div className="container">
       <table>
@@ -15,45 +14,32 @@ const Cart = ({ main_cart, phones, setMain_cart }) => {
           </tr>
         </thead>
         <tbody className={style.t_body}>
-          {main_cart.map((phone, i) => {
-            return (
-              <tr className={style.table_row} key={i + 100}>
+          {main_cart.length > 0 ? (
+            main_cart.map((a, i) => (
+              <tr key={i + 1000} className={style.table_row}>
                 <td>{i + 1}</td>
                 <td>
-                  <img src={phone.img} alt={phone.phone_name} />
+                  <img
+                    src={phones.find((p) => p.id === a.id).img}
+                    alt={phones.find((p) => p.id === a.id).model}
+                  />
                 </td>
-                <td>{phone.phone_name}</td>
+                <td>{phones.find((p) => p.id === a.id).phone_name}</td>
+                <td>$ {phones.find((p) => p.id === a.id).price} </td>
                 <td>
-                  <b>$</b> {phone.price}
-                </td>
-                <td>
-                  <button>-</button>
-                  <span>{phone.count}</span>
-                  <button>+</button>
+                  <button onClick={() => removeCart(a.id)}>-</button>
+                  <span>{main_cart[i].count}</span>
+                  <button onClick={() => addCart(a.id)}>+</button>
                 </td>
               </tr>
-            );
-          })}
+            ))
+          ) : (
+            <div>bo'sh</div>
+          )}
         </tbody>
         {/* */}
       </table>
-      <h3>
-        {main_cart.length > 0 ? (
-          <>
-            Total $
-            {main_cart.reduce(
-              (s, i) =>
-                s + i.count * phones.find((l) => l.price === i.price).price,
-              0
-            )}
-          </>
-        ) : (
-          <div className={style.cart_is_empty}>
-            <img height="200px" src="/img/empty_cart.png" alt="empty_cart" />
-          </div>
-        )}
-        {}
-      </h3>
+      {/* <h3>price</h3> */}
     </div>
   );
 };
