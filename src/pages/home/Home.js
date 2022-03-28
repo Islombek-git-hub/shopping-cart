@@ -1,7 +1,8 @@
 // import React from "react";
 import style from "./Home.module.scss";
 
-const Home = ({ phones, addCart }) => {
+const Home = ({ phones, cartFun }) => {
+  const inc = 1;
   return (
     <div className="container">
       <div className={style.box_phones}>
@@ -14,7 +15,7 @@ const Home = ({ phones, addCart }) => {
                 <p>{model}</p>
                 <span>${price}</span>
                 <br />
-                <button onClick={() => addCart(id)}>+ Add cart</button>
+                <button onClick={() => cartFun(id, i, inc)}>+ Add cart</button>
               </div>
             </div>
           );

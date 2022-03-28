@@ -7,7 +7,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 // ICONS END
 
-const Navbar = ({ main_cart }) => {
+const Navbar = ({ filter_cart }) => {
   // console.log(phones);
   return (
     <>
@@ -24,8 +24,8 @@ const Navbar = ({ main_cart }) => {
             <NavLink to="/cart">
               <div className={style.nav_link}>
                 <FaCartArrowDown /> CART
-                {main_cart.length > 0 && (
-                  <span className={style.cart_count}>{main_cart.length}</span>
+                {filter_cart.length && (
+                  <span className={style.cart_count}>{filter_cart.length}</span>
                 )}
               </div>
             </NavLink>

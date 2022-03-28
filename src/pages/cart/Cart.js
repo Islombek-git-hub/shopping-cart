@@ -1,6 +1,8 @@
 import style from "./Cart.module.scss";
 
-const Cart = ({ main_cart, removeCart, phones, addCart }) => {
+const Cart = ({ main_cart, filter_cart, cartFun }) => {
+  const inc = 1;
+  const dec = -1;
   return (
     <div className="container">
       <table>
@@ -14,22 +16,19 @@ const Cart = ({ main_cart, removeCart, phones, addCart }) => {
           </tr>
         </thead>
         <tbody className={style.t_body}>
-          {main_cart.length > 0 ? (
-            main_cart.map((a, i) => (
-              <tr key={i + 1000} className={style.table_row}>
+          {filter_cart.length > 0 ? (
+            filter_cart.map((aa, i) => (
+              <tr key={i + 10000} className={style.table_row}>
                 <td>{i + 1}</td>
                 <td>
-                  <img
-                    src={phones.find((p) => p.id === a.id).img}
-                    alt={phones.find((p) => p.id === a.id).model}
-                  />
+                  <img src={aa.img} alt={aa.model} />
                 </td>
-                <td>{phones.find((p) => p.id === a.id).phone_name}</td>
-                <td>$ {phones.find((p) => p.id === a.id).price} </td>
+                <td>{aa.phone_name}</td>
+                <td>$ {aa.price} </td>
                 <td>
-                  <button onClick={() => removeCart(a.id)}>-</button>
-                  <span>{main_cart[i].count}</span>
-                  <button onClick={() => addCart(a.id)}>+</button>
+                  <button onClick={() => cartFun(aa.id, i, dec)}>-</button>
+                  <span>{aa.count}</span>
+                  <button onClick={() => cartFun(aa.id, i, inc)}>+</button>
                 </td>
               </tr>
             ))
@@ -37,9 +36,7 @@ const Cart = ({ main_cart, removeCart, phones, addCart }) => {
             <div>bo'sh</div>
           )}
         </tbody>
-        {/* */}
       </table>
-      {/* <h3>price</h3> */}
     </div>
   );
 };

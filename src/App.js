@@ -9,51 +9,26 @@ import Contact from "./pages/contact/Contact";
 import phones from "./phones.json";
 
 function App() {
-  const [main_cart, setMain_cart] = useState([]);
-
-  function addCart(id) {
+  const [main_cart, setMain_cart] = useState(phones);
+  const [filter_cart, setfilter_cart] = useState([]);
+  function cartFun(id, i, n) {
+    let x = main_cart;
     if (main_cart.some((a) => a.id === id)) {
-      setMain_cart([
-        ...main_cart.filter((a) => a.id !== id),
-        {
-          id,
-          count: main_cart.find((a) => a.id === id).count + 1,
-        },
-      ]);
-    } else {
-      setMain_cart([
-        ...main_cart,
-        {
-          id,
-          count: 1,
-        },
-      ]);
+      x[i].count = x[i].count + n;
+      setMain_cart(x);
     }
+    setfilter_cart(main_cart.filter((a) => a.count > 0));
   }
-  const removeCart = (id) => {
-    const el = main_cart.find((i) => i.id === id);
-    if (el.count > 1) {
-      setMain_cart([
-        ...main_cart.filter((i) => i.id !== id),
-        {
-          id,
-          count: el.count - 1,
-        },
-      ]);
-    } else {
-      setMain_cart([...main_cart.filter((i) => i.id !== id)]);
-    }
-  };
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar main_cart={main_cart} />}>
+        <Route path="/" element={<Navbar filter_cart={filter_cart} />}>
           <Route
             index
             element={
               <Home
-                addCart={addCart}
+                cartFun={cartFun}
                 phones={phones}
                 main_cart={main_cart}
                 setMain_cart={setMain_cart}
@@ -64,10 +39,10 @@ function App() {
             path="/cart"
             element={
               <Cart
-                removeCart={removeCart}
                 phones={phones}
                 main_cart={main_cart}
-                addCart={addCart}
+                cartFun={cartFun}
+                filter_cart={filter_cart}
               />
             }
           />

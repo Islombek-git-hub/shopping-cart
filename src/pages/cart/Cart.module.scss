@@ -55,6 +55,13 @@ table {
         }
         &:nth-child(5) {
           width: calc(20%);
+          button {
+            width: 1.5rem;
+          }
+          span {
+            padding: 0 1rem;
+            text-align: center;
+          }
         }
       }
     }
