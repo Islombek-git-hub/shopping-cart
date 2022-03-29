@@ -16,9 +16,9 @@ const Cart = ({ main_cart, filter_cart, cartFun }) => {
           </tr>
         </thead>
         <tbody className={style.t_body}>
-          {filter_cart.length > 0 ? (
+          {filter_cart.length > 0 &&
             filter_cart.map((aa, i) => (
-              <tr key={i + 10000} className={style.table_row}>
+              <tr className={style.table_row} key={i + 10000}>
                 <td>{i + 1}</td>
                 <td>
                   <img src={aa.img} alt={aa.model} />
@@ -26,17 +26,33 @@ const Cart = ({ main_cart, filter_cart, cartFun }) => {
                 <td>{aa.phone_name}</td>
                 <td>$ {aa.price} </td>
                 <td>
-                  <button onClick={() => cartFun(aa.id, i, dec)}>-</button>
+                  <button onClick={() => cartFun(aa.id, dec)}>-</button>
                   <span>{aa.count}</span>
-                  <button onClick={() => cartFun(aa.id, i, inc)}>+</button>
+                  <button onClick={() => cartFun(aa.id, inc)}>+</button>
                 </td>
               </tr>
-            ))
-          ) : (
-            <div>bo'sh</div>
-          )}
+            ))}
         </tbody>
       </table>
+      {filter_cart.length <= 0 ? (
+        <div className={style.cart_is_empty}>
+          <img height="250px" src="./img/empty_cart.png" alt="is empty" />
+        </div>
+      ) : (
+        <>
+          {
+            <h3>
+              Total:{" "}
+              {filter_cart.reduce(
+                (s, i) =>
+                  s + i.count * main_cart.find((l) => l.id === i.id).price,
+                0
+              )}{" "}
+              $
+            </h3>
+          }
+        </>
+      )}
     </div>
   );
 };

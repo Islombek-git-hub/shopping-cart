@@ -15,7 +15,7 @@ const Home = ({ phones, cartFun }) => {
                 <p>{model}</p>
                 <span>${price}</span>
                 <br />
-                <button onClick={() => cartFun(id, i, inc)}>+ Add cart</button>
+                <button onClick={() => cartFun(id, inc)}>+ Add cart</button>
               </div>
             </div>
           );

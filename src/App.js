@@ -11,12 +11,15 @@ import phones from "./phones.json";
 function App() {
   const [main_cart, setMain_cart] = useState(phones);
   const [filter_cart, setfilter_cart] = useState([]);
-  function cartFun(id, i, n) {
-    let x = main_cart;
-    if (main_cart.some((a) => a.id === id)) {
-      x[i].count = x[i].count + n;
-      setMain_cart(x);
-    }
+  function cartFun(id, n) {
+    main_cart.map((a, i) => {
+      let x = main_cart;
+      if (a.id === id) {
+        x[i].count = x[i].count + n;
+        setMain_cart(x);
+      }
+    });
+
     setfilter_cart(main_cart.filter((a) => a.count > 0));
   }
 

@@ -57,6 +57,9 @@ table {
           width: calc(20%);
           button {
             width: 1.5rem;
+            border: none;
+            background-color: #2d3436;
+            color: #eee;
           }
           span {
             padding: 0 1rem;
